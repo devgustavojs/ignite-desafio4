@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 
-function Modal(props){
+
+function Modal(props: any){
   const [modalStatus, setModalStatus] = useState(props.isOpen);
   const {children, setIsOpen} = props
 
@@ -11,7 +12,7 @@ function Modal(props){
     if(modalStatus.isOpen !== isOpen){
       setModalStatus(isOpen);
     }
-  })
+  }, [props, modalStatus])
 
   return(
     <ReactModal
